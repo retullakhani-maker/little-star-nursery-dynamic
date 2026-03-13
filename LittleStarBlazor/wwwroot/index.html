@@ -21,15 +21,41 @@
             100% { transform: scale(0.95); opacity: 0.8; }
         }
     </style>
+    <!-- Start SPA Hack -->
+    <script type="text/javascript">
+        (function (l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function (s) {
+                    return s.replace(/~and~/g, '&')
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location))
+    </script>
+    <!-- End SPA Hack -->
 </head>
 
 <body>
     <div id="app">
         <div style="display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column; gap:20px; font-family:'Nunito', sans-serif;">
             <img src="assets/images/logo.png" alt="Loading..." style="width:120px; animation: pulse 1.5s infinite;" />
-            <h2 style="color:#FF4757;">Loading Little Star...</h2>
+            <div style="text-align:center;">
+                <h2 style="color:#FF4757; margin-bottom:10px;">Loading Little Star...</h2>
+                <div style="width:200px; height:6px; background:#f1f5f9; border-radius:10px; overflow:hidden; margin:0 auto;">
+                    <div style="width:40%; height:100%; background:var(--primary, #FF4757); border-radius:10px; animation: progress 2s infinite ease-in-out;"></div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <style>
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(250%); }
+        }
+    </style>
 
     <div id="blazor-error-ui">
         An unhandled error has occurred.

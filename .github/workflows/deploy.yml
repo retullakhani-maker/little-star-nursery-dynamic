@@ -3,12 +3,22 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,8 +31,19 @@ jobs:
       - name: Publish application
         run: dotnet publish LittleStarBlazor/LittleStarBlazor.csproj -c Release -o release
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Create 404.html for SPA routing
+        run: |
+          cp release/wwwroot/index.html release/wwwroot/404.html
+          sed -i 's|<!-- Start SPA Hack -->|<!-- Start SPA Hack --><script type="text/javascript">var pathSegmentsToKeep = 1; var l = window.location; l.replace(l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") + l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" + l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/\&/g, "~and~") + (l.search ? "&" + l.search.slice(1).replace(/\&/g, "~and~") : "") + l.hash);</script>|' release/wwwroot/404.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: release/wwwroot
-          branch: gh-pages # This will create and push to the gh-pages branch
+          path: release/wwwroot
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
