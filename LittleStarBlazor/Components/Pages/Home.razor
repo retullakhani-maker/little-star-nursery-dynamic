@@ -133,7 +133,7 @@
     </div>
 </section>
 
-<!-- ========== ABOUT ========== -->
+<!-- ========== ABOUT PREVIEW ========== -->
 <section class="about-section section" id="about">
     <div class="about-dot-pattern"></div>
     <div class="container">
@@ -143,36 +143,14 @@
                     <img src="assets/images/nursery_hero_vibrant.png" alt="Little Star Learning Environment"
                          class="about-blob-img" />
                 </div>
-                <div class="about-float-card afc-1">
-                    <div class="afc-icon" style="background:#DCFCE7;color:#16A34A;"><i class="fas fa-star"></i></div>
-                    <div><strong>25+ Years</strong><span>of Excellence</span></div>
-                </div>
-                <div class="about-float-card afc-2">
-                    <div class="afc-icon" style="background:#FEE2E2;color:#EF4444;"><i class="fas fa-heart"></i></div>
-                    <div><strong>28000+ Kids</strong><span>Enrolled</span></div>
-                </div>
             </div>
 
             <div class="about-content-side" data-aos="fade-left">
                 <span class="sec-badge badge-red"><i class="fas fa-heart"></i> Who We Are</span>
-                <h2 class="sec-heading">
-                    Kindergarten &amp; Childhood is<br>
-                    <span class="sh-accent">Our Passion!</span>
-                </h2>
+                <h2 class="sec-heading">Kindergarten &amp; Childhood is Our Passion!</h2>
                 <div class="sh-underline"></div>
                 <p class="about-text">
-                    At Little Star Nursery, we try to provide an environment which helps a child to
-                    effectively learn while making learning a matter of sheer joy. We provide personalized treatment as every
-                    child is different in their own way.
-                </p>
-                <p class="about-text">
-                    Our academic program focuses on <strong>activity-based pragmatic learning</strong>.
-                    The curriculum is designed keeping a balance between playing &amp; learning while providing holistic
-                    development.
-                </p>
-                <p class="about-tagline">
-                    <i class="fas fa-star" style="color:#FBBF24;"></i>
-                    Enter into the world of Little Star Nursery to start a cheerful journey!
+                    At Little Star Nursery, we provide an environment which helps a child to effectively learn while making learning a matter of sheer joy. Since 2010, we've been nurturing over 28,000 little stars...
                 </p>
                 <div class="feature-bubbles-grid">
                     <div class="fb-item fbi-red">
@@ -183,21 +161,16 @@
                         <div class="fbi-icon"><i class="fas fa-user-graduate"></i></div>
                         <span>Quality Educators</span>
                     </div>
-                    <div class="fb-item fbi-green">
-                        <div class="fbi-icon"><i class="fas fa-shield-alt"></i></div>
-                        <span>Safety &amp; Security</span>
-                    </div>
-                    <div class="fb-item fbi-yellow">
-                        <div class="fbi-icon"><i class="fas fa-laugh-beam"></i></div>
-                        <span>Learn with Fun</span>
-                    </div>
+                </div>
+                <div class="mt-4">
+                    <a href="about" class="btn btn--primary"><i class="fas fa-info-circle"></i> Read More About Our Story</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== PROGRAMS ========== -->
+<!-- ========== PROGRAMS PREVIEW ========== -->
 <section class="programs-section section" id="programs">
     <div class="programs-wave-top">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -207,18 +180,18 @@
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
             <span class="sec-badge badge-green"><i class="fas fa-book-open"></i> Classes</span>
-            <h2 class="sec-heading">Our Programs at a Glance</h2>
-            <p class="sec-lead">
-                Our programs are designed to help children acquire social skills and become future-ready
-                citizens — covering socio-emotional, creative, language, physical, and cognitive development.
-            </p>
+            <h2 class="sec-heading">Our Programs</h2>
+            <p class="sec-lead">From Nursery to Jr. & Sr. Kindergarten, we offer a complete academic foundation for your child.</p>
         </div>
 
         <div class="programs-grid">
-            @foreach (var program in ContentService.GetPrograms())
+            @foreach (var program in ContentService.GetPrograms().Take(2))
             {
                 <ProgramCard Program="program" />
             }
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="programs" class="btn btn--secondary btn--lg">View All Programs & Details <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
@@ -246,16 +219,16 @@
     </div>
 </section>
 
-<!-- ========== BRANCHES ========== -->
+<!-- ========== BRANCHES PREVIEW ========== -->
 <section class="branches-section section" id="branches">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
             <span class="sec-badge badge-green"><i class="fas fa-map-marker-alt"></i> Locations</span>
-            <h2 class="sec-heading">Find Us Near You</h2>
-            <p class="sec-lead">Little Star Nursery has <strong>4 branches across Surat</strong> — a learning center close to your home.</p>
+            <h2 class="sec-heading">Our Presence in Surat</h2>
+            <p class="sec-lead">4 branches, 1 mission — Premium childhood education at your doorstep.</p>
         </div>
         <div class="branches-grid">
-            @foreach (var branch in ContentService.GetBranches())
+            @foreach (var branch in ContentService.GetBranches().Take(2))
             {
                 <div class="branch-card @branch.ColorClass" data-aos="fade-up">
                     <div class="bcard-top">
@@ -263,119 +236,33 @@
                         <div class="bcard-title-area">
                             <h3>@branch.Name</h3>
                             <h4 class="guj-text" style="font-family:'Nunito', sans-serif; font-size: 0.9rem; color: var(--text-light); margin-top: -2px;">@branch.NameGujarati</h4>
-                            
-                            @if (!string.IsNullOrEmpty(branch.Badge))
-                            {
-                                <div style="display: flex; gap: 6px; margin-top: 4px;">
-                                    <span class="bcard-main-badge">@branch.Badge</span>
-                                    <span class="bcard-main-badge" style="background:#fed7d7; color:#c53030;">@branch.BadgeGujarati</span>
-                                </div>
-                            }
                         </div>
                     </div>
                     <div class="bcard-info">
                         <p><i class="fas fa-location-dot"></i> @branch.Address</p>
-                        <p class="guj-text" style="font-size: 0.85rem; color: var(--text-muted); padding-left: 20px;">@branch.AddressGujarati</p>
                         <p><i class="fas fa-phone"></i> @branch.Phone</p>
-                    </div>
-                    <div class="bcard-actions">
-                        <a href="tel:@branch.Phone.Replace(" ", "")" class="bca-call"><i class="fas fa-phone"></i> Call</a>
-                        <a href="@branch.MapLink" class="bca-map" target="_blank"><i class="fas fa-directions"></i> Map</a>
-                        <a href="https://wa.me/@(branch.Phone.Replace(" ", "").Replace("+", ""))?text=@Uri.EscapeDataString($"Hi, I am interested in Little Star Nursery ({branch.Name})")" class="bca-wa" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Chat
-                        </a>
                     </div>
                 </div>
             }
         </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="branches" class="btn btn--outline btn--lg">Find All Branches & Maps <i class="fas fa-map-marked-alt"></i></a>
+        </div>
     </div>
 </section>
 
-<!-- ========== CONTACT ========== -->
+<!-- ========== CONTACT PREVIEW ========== -->
 <section class="contact-section section" id="contact">
-    <div class="contact-rocket-decor">
-        <img src="assets/images/pencil_rocket.png" alt="" />
-    </div>
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
             <span class="sec-badge badge-blue"><i class="fas fa-envelope"></i> Contact</span>
-            <h2 class="sec-heading">Get In Touch With Us</h2>
-            <p class="sec-lead">Ready to enroll your little star? We'd love to hear from you!</p>
+            <h2 class="sec-heading">Have any Questions?</h2>
+            <p class="sec-lead">We're happy to help you with the admission process and any other inquiries.</p>
         </div>
-
-        <div class="contact-wrapper">
-            <div class="contact-info-side" data-aos="fade-right">
-                <h3>Contact Information</h3>
-                <div class="ci-list">
-                    <div class="ci-item" style="--ci-color:#22C55E;">
-                        <div class="ci-icon-wrap"><i class="fas fa-phone-alt"></i></div>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:@(ContentService.GetBranches().First().Phone.Replace(" ", ""))" style="color: inherit; text-decoration: none;">
-                                <p>@ContentService.GetBranches().First().Phone</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ci-item" style="--ci-color:#3B82F6;">
-                        <div class="ci-icon-wrap"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:littlestar.eng7@gmail.com" style="color: inherit; text-decoration: none;">
-                                <p>littlestar.eng7@gmail.com</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ci-item" style="--ci-color:#EF4444;">
-                        <div class="ci-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h4>Main Branch</h4>
-                            <a href="@ContentService.GetBranches().First().MapLink" target="_blank" style="color: inherit; text-decoration: none;">
-                                <p>@ContentService.GetBranches().First().Address</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-map-embed">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.839845763266!2d72.8617833!3d21.2183204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f7b05133ddb%3A0x34bdeacc8d2f63f0!2sLittle%20Star%20Nursery%20School!5e0!3m2!1sen!2sin!4v1710320000000!5m2!1sen!2sin"
-                            width="100%" height="230" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"
-                            title="Little Star Nursery Surat Location">
-                    </iframe>
-                </div>
-            </div>
-
-            <div class="contact-form-side" data-aos="fade-left">
-                <h3>Send Us a Message</h3>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-row-2">
-                        <div class="form-group">
-                            <label>Your Name <span>*</span></label>
-                            <input type="text" placeholder="e.g. Anita Patel" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number</label>
-                            <input type="tel" placeholder="+91 98765 43210" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address <span>*</span></label>
-                        <input type="email" placeholder="your@email.com" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Program of Interest</label>
-                        <select>
-                            <option value="">Select a program...</option>
-                            @foreach (var program in ContentService.GetPrograms())
-                            {
-                                <option>@program.Title (@program.AgeRange)</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea placeholder="How can we help you?" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn--primary btn--lg w-100">Send Message <i class="fas fa-paper-plane"></i></button>
-                </form>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+                <a href="contact" class="btn btn--primary btn--lg"><i class="fas fa-paper-plane"></i> Send us a Message</a>
+                <a href="tel:+919099520954" class="btn btn--outline btn--lg"><i class="fas fa-phone-alt"></i> Call +91 90995 20954</a>
             </div>
         </div>
     </div>

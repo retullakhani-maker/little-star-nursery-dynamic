@@ -1,0 +1,77 @@
+@page "/branches"
+@inject LittleStarBlazor.Services.ContentService ContentService
+
+<PageTitle>Our Branches | Little Star Nursery</PageTitle>
+
+<section class="gallery-hero">
+    <div class="container text-center" data-aos="fade-up">
+        <span class="sec-badge badge-green"><i class="fas fa-map-marker-alt"></i> Locations</span>
+        <h1 class="gallery-hero__title">Our Branches in Surat</h1>
+        <p class="gallery-hero__sub">
+            With 4 vibrant centers across the city, we are always close to your home. Each branch is equipped with premium facilities and a safe environment for your child.
+        </p>
+    </div>
+</section>
+
+<section class="branches-page section">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="sec-heading">Find a Center Near You</h2>
+            <div class="sh-underline mx-auto"></div>
+            <p class="sec-lead">Every Little Star branch follows the same high standards of quality education and safety.</p>
+        </div>
+
+        <div class="branches-grid mt-5">
+            @foreach (var branch in ContentService.GetBranches())
+            {
+                <div class="branch-card @branch.ColorClass" data-aos="fade-up">
+                    <div class="bcard-top">
+                        <div class="bcard-pin"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="bcard-title-area">
+                            <h3>@branch.Name</h3>
+                            <h4 class="guj-text" style="font-family:'Nunito', sans-serif; font-size: 0.9rem; color: var(--text-light); margin-top: -2px;">@branch.NameGujarati</h4>
+                            
+                            @if (!string.IsNullOrEmpty(branch.Badge))
+                            {
+                                <div style="display: flex; gap: 6px; margin-top: 4px;">
+                                    <span class="bcard-main-badge">@branch.Badge</span>
+                                    <span class="bcard-main-badge" style="background:#fed7d7; color:#c53030;">@branch.BadgeGujarati</span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="bcard-info">
+                        <p><i class="fas fa-location-dot"></i> @branch.Address</p>
+                        <p class="guj-text" style="font-size: 0.85rem; color: var(--text-muted); padding-left: 20px;">@branch.AddressGujarati</p>
+                        <p><i class="fas fa-phone"></i> @branch.Phone</p>
+                    </div>
+                    <div class="bcard-actions">
+                        <a href="tel:@branch.Phone.Replace(" ", "")" class="bca-call"><i class="fas fa-phone"></i> Call</a>
+                        <a href="@branch.MapLink" class="bca-map" target="_blank"><i class="fas fa-directions"></i> Map</a>
+                        <a href="https://wa.me/@(branch.Phone.Replace(" ", "").Replace("+", ""))?text=@Uri.EscapeDataString($"Hi, I am interested in Little Star Nursery ({branch.Name})")" class="bca-wa" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Chat
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="branch-highlights mt-5 pt-5" data-aos="fade-up">
+            <div class="row align-items-center" style="display:flex; flex-wrap:wrap; gap:40px;">
+                <div style="flex:1; min-width:300px;">
+                    <h3>All Branches Feature:</h3>
+                    <ul class="highlights-list" style="list-style:none; padding:0; margin-top:20px;">
+                        <li style="margin-bottom:15px;"><i class="fas fa-check-circle" style="color:var(--green); margin-right:10px;"></i> 24/7 CCTV Surveillance</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check-circle" style="color:var(--green); margin-right:10px;"></i> Spacious and Vibrant Classrooms</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check-circle" style="color:var(--green); margin-right:10px;"></i> Safe Indoor and Outdoor Play Areas</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check-circle" style="color:var(--green); margin-right:10px;"></i> Clean and Child-Friendly Washrooms</li>
+                        <li style="margin-bottom:15px;"><i class="fas fa-check-circle" style="color:var(--green); margin-right:10px;"></i> Skilled and Loving Support Staff</li>
+                    </ul>
+                </div>
+                <div style="flex:1; min-width:300px;">
+                    <img src="assets/images/all_branches.jpeg" alt="Our Branches" style="width:100%; border-radius:24px; box-shadow:var(--shadow-lg);" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

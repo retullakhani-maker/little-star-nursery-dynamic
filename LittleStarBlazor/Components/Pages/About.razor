@@ -1,0 +1,64 @@
+@page "/about"
+@inject LittleStarBlazor.Services.ContentService ContentService
+
+<PageTitle>About Us | Little Star Nursery</PageTitle>
+
+<section class="gallery-hero">
+    <div class="container text-center" data-aos="fade-up">
+        <span class="sec-badge badge-red"><i class="fas fa-heart"></i> Our Story</span>
+        <h1 class="gallery-hero__title">About Little Star Nursery</h1>
+        <p class="gallery-hero__sub">
+            Nurturing hearts and minds since 2010. Discover our journey, our mission, and the passion that drives us to provide the best start for your child.
+        </p>
+    </div>
+</section>
+
+<section class="about-section section">
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-img-side" data-aos="fade-right">
+                <div class="about-blob-wrap">
+                    <img src="assets/images/nursery_hero_vibrant.png" alt="Little Star Learning Environment" class="about-blob-img" />
+                </div>
+            </div>
+            <div class="about-content-side" data-aos="fade-left">
+                <h2 class="sec-heading">Our Mission & Vision</h2>
+                <div class="sh-underline"></div>
+                <p class="about-text">
+                    At Little Star Nursery, we believe that the first years of a child's life are the most critical for their development. Our mission is to provide an environment which helps a child to effectively learn while making learning a matter of sheer joy.
+                </p>
+                <p class="about-text">
+                    We recognize that every child is unique, with their own pace of learning and areas of interest. Our personalized approach ensures that each little star gets the attention they need to shine.
+                </p>
+                <div class="feature-bubbles-grid">
+                    <div class="fb-item fbi-red">
+                        <div class="fbi-icon"><i class="fas fa-home"></i></div>
+                        <span>Homelike Environment</span>
+                    </div>
+                    <div class="fb-item fbi-blue">
+                        <div class="fbi-icon"><i class="fas fa-user-graduate"></i></div>
+                        <span>Quality Educators</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detailed-info-grid mt-5" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 80px;">
+            <div class="info-card" data-aos="fade-up">
+                <div class="info-icon" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 20px;"><i class="fas fa-history"></i></div>
+                <h3>Our History</h3>
+                <p>Starting with a small group of children in 2010, Little Star has grown into one of Surat's most trusted names in early childhood education. Today, we serve over 28,000 families across 4 vibrant branches.</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="info-icon" style="font-size: 2.5rem; color: var(--green); margin-bottom: 20px;"><i class="fas fa-leaf"></i></div>
+                <h3>Our Philosophy</h3>
+                <p>We follow a pragmatic, activity-based learning approach. We don't just teach; we inspire curiosity. Our curriculum is a perfect blend of modern educational techniques and traditional values.</p>
+            </div>
+            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="info-icon" style="font-size: 2.5rem; color: var(--blue); margin-bottom: 20px;"><i class="fas fa-user-shield"></i></div>
+                <h3>Our Commitment</h3>
+                <p>Safety, inclusivity, and holistic growth are our top priorities. We provide a secure environment where children feel safe to explore, fail, learn, and succeed.</p>
+            </div>
+        </div>
+    </div>
+</section>

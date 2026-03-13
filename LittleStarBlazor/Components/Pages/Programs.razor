@@ -1,0 +1,58 @@
+@page "/programs"
+@inject LittleStarBlazor.Services.ContentService ContentService
+
+<PageTitle>Our Programs | Little Star Nursery</PageTitle>
+
+<section class="gallery-hero">
+    <div class="container text-center" data-aos="fade-up">
+        <span class="sec-badge badge-green"><i class="fas fa-book-open"></i> Learning Journey</span>
+        <h1 class="gallery-hero__title">Academic Programs</h1>
+        <p class="gallery-hero__sub">
+            Holistic development through activity-based learning. Our programs are tailored for kids from 2 to 6 years, ensuring a solid foundation for their future.
+        </p>
+    </div>
+</section>
+
+<section class="programs-page section">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="sec-heading">Curriculum Highlights</h2>
+            <div class="sh-underline mx-auto"></div>
+            <p class="sec-lead">
+                We focus on socio-emotional, creative, language, physical, and cognitive development. Each program is designed to be age-appropriate and engaging.
+            </p>
+        </div>
+
+        <div class="programs-grid mt-5">
+            @foreach (var program in ContentService.GetPrograms())
+            {
+                <div class="detailed-program-item" style="margin-bottom: 60px;" data-aos="fade-up">
+                    <ProgramCard Program="program" />
+                    <!-- Detailed info for each program could be added here later if needed -->
+                </div>
+            }
+        </div>
+
+        <div class="learning-outcomes mt-5 p-5" style="background: var(--gray-light); border-radius: 24px;" data-aos="fade-up">
+            <h3 class="text-center mb-4">Core Learning Outcomes</h3>
+            <div class="outcomes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div class="outcome-item">
+                    <h4 style="color: var(--primary);"><i class="fas fa-comments"></i> Communication</h4>
+                    <p>Developing language skills through storytelling, rhymes, and interactive sessions.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4 style="color: var(--green);"><i class="fas fa-puzzle-piece"></i> Cognitive</h4>
+                    <p>Building problem-solving abilities and logical thinking through puzzles and games.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4 style="color: var(--blue);"><i class="fas fa-users"></i> Social Skills</h4>
+                    <p>Encouraging cooperation, sharing, and empathy in a group setting.</p>
+                </div>
+                <div class="outcome-item">
+                    <h4 style="color: var(--peach);"><i class="fas fa-paint-brush"></i> Creativity</h4>
+                    <p>Nurturing artistic expression through music, art, and craft activities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
