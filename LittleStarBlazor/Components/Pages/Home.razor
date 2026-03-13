@@ -1,0 +1,367 @@
+@page "/"
+@inject LittleStarBlazor.Services.ContentService ContentService
+@using LittleStarBlazor.Components.Shared
+
+<PageTitle>Little Star Nursery | Premium Preschool & Learning Center – Surat</PageTitle>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="hero__circle hc-1"></div>
+    <div class="hero__circle hc-2"></div>
+    <div class="hero__circle hc-3"></div>
+    <div class="hero__circle hc-4"></div>
+
+    <div class="container hero__inner">
+        <div class="hero__content" data-aos="fade-right">
+            <div class="hero__badge-top">
+                <i class="fas fa-star"></i> Welcome to Little Star Nursery
+            </div>
+            <h1 class="hero__heading">
+                Where Every Child<br>
+                <span class="ht-green">Shines</span>
+                <span class="ht-yellow">Bright</span>
+                <span class="ht-star">⭐</span>
+            </h1>
+            <p class="hero__sub">
+                Premium preschool experience designed for curiosity, growth, and endless smiles. Join our
+                vibrant community of little learners!
+            </p>
+            <div class="hero__actions">
+                <a href="#contact" class="btn btn--primary btn--lg"><i class="fas fa-graduation-cap"></i> Enroll Now</a>
+                <a href="#about" class="btn btn--outline btn--lg"><i class="fas fa-play-circle"></i> Explore More</a>
+            </div>
+            <div class="hero__stats">
+                <div class="hero__stat">
+                    <span class="hero__stat-num" data-target="500" data-suffix="+">0+</span>
+                    <span class="hero__stat-label">Happy Kids</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num" data-target="20" data-suffix="+">0+</span>
+                    <span class="hero__stat-label">Educators</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num" data-target="6" data-suffix="">0</span>
+                    <span class="hero__stat-label">Branches</span>
+                </div>
+                <div class="hero__stat-divider"></div>
+                <div class="hero__stat">
+                    <span class="hero__stat-num" data-target="15" data-suffix="+">0+</span>
+                    <span class="hero__stat-label">Years</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__visual" data-aos="fade-left">
+            <div class="hero__img-wrap">
+                <img src="assets/images/nursery_hero_vibrant.png" alt="Kids learning at Little Star Nursery"
+                     class="hero__main-img" />
+            </div>
+            <div class="hv-badge hv-badge-1">
+                <i class="fas fa-star" style="color:#FBBF24;"></i>
+                <div><strong>Top Rated</strong><span>in Surat</span></div>
+            </div>
+            <div class="hv-badge hv-badge-2">
+                <i class="fas fa-shield-alt" style="color:#22C55E;"></i>
+                <div><strong>100% Safe</strong><span>Environment</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero__wave">
+        <svg viewBox="0 0 1440 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60C240 110 480 20 720 60C960 100 1200 20 1440 60V110H0V60Z" fill="#fff9f0" />
+        </svg>
+    </div>
+</section>
+
+<!-- ========== STATS BAR ========== -->
+<section class="stats-bar">
+    <div class="container stats-grid">
+        <div class="stat-item">
+            <div class="stat-icon-wrap" style="background:#FEF3C7;color:#D97706;"><i class="fas fa-child"></i></div>
+            <div>
+                <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+                <div class="stat-label">Happy Students</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon-wrap" style="background:#DCFCE7;color:#16A34A;"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div>
+                <div class="stat-num" data-target="20" data-suffix="+">0+</div>
+                <div class="stat-label">Qualified Teachers</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon-wrap" style="background:#EDE9FE;color:#7C3AED;"><i class="fas fa-school"></i></div>
+            <div>
+                <div class="stat-num" data-target="6" data-suffix="">0</div>
+                <div class="stat-label">Branches in Surat</div>
+            </div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon-wrap" style="background:#FEE2E2;color:#DC2626;"><i class="fas fa-award"></i></div>
+            <div>
+                <div class="stat-num" data-target="15" data-suffix="+">0+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BILINGUAL BANNER ========== -->
+<section class="bilingual-section">
+    <div class="bilingual-stripe-bar">
+        <div class="bsb-green"></div>
+        <div class="bsb-red"></div>
+        <div class="bsb-yellow"></div>
+        <div class="bsb-blue"></div>
+    </div>
+    <div class="container bilingual-inner">
+        <div class="bilingual-main">
+            <div class="bilingual-text-box">
+                <h2>Learning Without Boundaries</h2>
+                <p>We offer education in both</p>
+                <div class="lang-pills">
+                    <span class="lang-pill guj-pill">ગુજરાતી માધ્યમ</span>
+                    <span class="lang-amp">&amp;</span>
+                    <span class="lang-pill eng-pill">English Medium</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about-section section" id="about">
+    <div class="about-dot-pattern"></div>
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-img-side" data-aos="fade-right">
+                <div class="about-blob-wrap">
+                    <img src="assets/images/nursery_hero_vibrant.png" alt="Little Star Learning Environment"
+                         class="about-blob-img" />
+                </div>
+                <div class="about-float-card afc-1">
+                    <div class="afc-icon" style="background:#DCFCE7;color:#16A34A;"><i class="fas fa-star"></i></div>
+                    <div><strong>15+ Years</strong><span>of Excellence</span></div>
+                </div>
+                <div class="about-float-card afc-2">
+                    <div class="afc-icon" style="background:#FEE2E2;color:#EF4444;"><i class="fas fa-heart"></i></div>
+                    <div><strong>500+ Kids</strong><span>Enrolled</span></div>
+                </div>
+            </div>
+
+            <div class="about-content-side" data-aos="fade-left">
+                <span class="sec-badge badge-red"><i class="fas fa-heart"></i> Who We Are</span>
+                <h2 class="sec-heading">
+                    Kindergarten &amp; Childhood is<br>
+                    <span class="sh-accent">Our Passion!</span>
+                </h2>
+                <div class="sh-underline"></div>
+                <p class="about-text">
+                    At Little Star Nursery, we try to provide an environment which helps a child to
+                    effectively learn while making learning a matter of sheer joy. We provide personalized treatment as every
+                    child is different in their own way.
+                </p>
+                <p class="about-text">
+                    Our academic program focuses on <strong>activity-based pragmatic learning</strong>.
+                    The curriculum is designed keeping a balance between playing &amp; learning while providing holistic
+                    development.
+                </p>
+                <p class="about-tagline">
+                    <i class="fas fa-star" style="color:#FBBF24;"></i>
+                    Enter into the world of Little Star Nursery to start a cheerful journey!
+                </p>
+                <div class="feature-bubbles-grid">
+                    <div class="fb-item fbi-red">
+                        <div class="fbi-icon"><i class="fas fa-home"></i></div>
+                        <span>Homelike Environment</span>
+                    </div>
+                    <div class="fb-item fbi-blue">
+                        <div class="fbi-icon"><i class="fas fa-user-graduate"></i></div>
+                        <span>Quality Educators</span>
+                    </div>
+                    <div class="fb-item fbi-green">
+                        <div class="fbi-icon"><i class="fas fa-shield-alt"></i></div>
+                        <span>Safety &amp; Security</span>
+                    </div>
+                    <div class="fb-item fbi-yellow">
+                        <div class="fbi-icon"><i class="fas fa-laugh-beam"></i></div>
+                        <span>Learn with Fun</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROGRAMS ========== -->
+<section class="programs-section section" id="programs">
+    <div class="programs-wave-top">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 40C360 80 720 0 1080 40C1260 60 1350 20 1440 40V0H0V40Z" fill="white" />
+        </svg>
+    </div>
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="sec-badge badge-green"><i class="fas fa-book-open"></i> Classes</span>
+            <h2 class="sec-heading">Our Programs at a Glance</h2>
+            <p class="sec-lead">
+                Our programs are designed to help children acquire social skills and become future-ready
+                citizens — covering socio-emotional, creative, language, physical, and cognitive development.
+            </p>
+        </div>
+
+        <div class="programs-grid">
+            @foreach (var program in ContentService.GetPrograms())
+            {
+                <ProgramCard Program="program" />
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials-section section" id="testimonials">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="sec-badge badge-purple"><i class="fas fa-heart"></i> Testimonials</span>
+            <h2 class="sec-heading">What Parents Say About Us</h2>
+            <p class="sec-lead">Hear from the families who trust us with their most precious little ones.</p>
+        </div>
+
+        <div class="swiper testimonial-swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                @foreach (var testimonial in ContentService.GetTestimonials())
+                {
+                    <TestimonialCard Testimonial="testimonial" />
+                }
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BRANCHES ========== -->
+<section class="branches-section section" id="branches">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="sec-badge badge-green"><i class="fas fa-map-marker-alt"></i> Locations</span>
+            <h2 class="sec-heading">Find Us Near You</h2>
+            <p class="sec-lead">Little Star Nursery has <strong>6 branches across Surat</strong> — a learning center close to your home.</p>
+        </div>
+        <div class="branches-grid">
+            @foreach (var branch in ContentService.GetBranches())
+            {
+                <div class="branch-card @branch.ColorClass" data-aos="fade-up">
+                    <div class="bcard-top">
+                        <div class="bcard-pin"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="bcard-title-area">
+                            <h3>@branch.Name</h3>
+                            @if (!string.IsNullOrEmpty(branch.Badge))
+                            {
+                                <span class="bcard-main-badge">@branch.Badge</span>
+                            }
+                        </div>
+                    </div>
+                    <div class="bcard-info">
+                        <p><i class="fas fa-location-dot"></i> @branch.Address</p>
+                        <p><i class="fas fa-phone"></i> @branch.Phone</p>
+                    </div>
+                    <div class="bcard-actions">
+                        <a href="tel:@branch.Phone.Replace(" ", "")" class="bca-call"><i class="fas fa-phone"></i> Call</a>
+                        <a href="@branch.MapLink" class="bca-map" target="_blank"><i class="fas fa-directions"></i> Map</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact-section section" id="contact">
+    <div class="contact-rocket-decor">
+        <img src="assets/images/pencil_rocket.png" alt="" />
+    </div>
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <span class="sec-badge badge-blue"><i class="fas fa-envelope"></i> Contact</span>
+            <h2 class="sec-heading">Get In Touch With Us</h2>
+            <p class="sec-lead">Ready to enroll your little star? We'd love to hear from you!</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info-side" data-aos="fade-right">
+                <h3>Contact Information</h3>
+                <div class="ci-list">
+                    <div class="ci-item" style="--ci-color:#22C55E;">
+                        <div class="ci-icon-wrap"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 90995 20954</p>
+                        </div>
+                    </div>
+                    <div class="ci-item" style="--ci-color:#3B82F6;">
+                        <div class="ci-icon-wrap"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>littlestar.eng7@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="ci-item" style="--ci-color:#EF4444;">
+                        <div class="ci-icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Main Branch</h4>
+                            <p>12/A, Shriramnagar Society, Near Hirabaugh Circle, Surat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14876.10323389!2d72.8800!3d21.2100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDEyJzM2LjAiTiA3MsKwNTInNDguMCJF!5e0!3m2!1sen!2sin!4v1625828238210!5m2!1sen!2sin"
+                            width="100%" height="230" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"
+                            title="Little Star Nursery Surat Location">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="contact-form-side" data-aos="fade-left">
+                <h3>Send Us a Message</h3>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>Your Name <span>*</span></label>
+                            <input type="text" placeholder="e.g. Anita Patel" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="+91 98765 43210" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span>*</span></label>
+                        <input type="email" placeholder="your@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Program of Interest</label>
+                        <select>
+                            <option value="">Select a program...</option>
+                            @foreach (var program in ContentService.GetPrograms())
+                            {
+                                <option>@program.Title (@program.AgeRange)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="How can we help you?" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg w-100">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+@page "/gallery"
+@inject LittleStarBlazor.Services.ContentService ContentService
+
+<PageTitle>Gallery | Little Star Nursery – Moments & Milestones</PageTitle>
+
+<!-- ========== GALLERY HERO ========== -->
+<section class="gallery-hero">
+    <div class="hero__circle hc-1"></div>
+    <div class="hero__circle hc-4"></div>
+    <div class="container text-center">
+        <span class="sec-badge badge-red"><i class="fas fa-camera-retro"></i> Our Memories</span>
+        <h1 class="gallery-hero__title">Moments & <span class="sh-accent">Milestones</span> ⭐</h1>
+        <p class="gallery-hero__sub">Explore the joyful world of Little Star Nursery. Our vibrant activities, colorful festivals, and special celebrations.</p>
+    </div>
+</section>
+
+<!-- ========== GALLERY MAIN ========== -->
+<section class="gallery-page-section">
+    <div class="container">
+        <!-- Category Filter -->
+        <div class="gallery-filter-wrap" data-aos="fade-up">
+            <button class="gallery-filter-btn @(currentFilter == "all" ? "active" : "")" @onclick="@(() => SetFilter("all"))">All</button>
+            <button class="gallery-filter-btn @(currentFilter == "activity" ? "active" : "")" @onclick="@(() => SetFilter("activity"))">Activities</button>
+            <button class="gallery-filter-btn @(currentFilter == "festival" ? "active" : "")" @onclick="@(() => SetFilter("festival"))">Festivals</button>
+            <button class="gallery-filter-btn @(currentFilter == "function" ? "active" : "")" @onclick="@(() => SetFilter("function"))">Functions</button>
+        </div>
+
+        <div class="gallery-full-grid" id="galleryGrid">
+            @foreach (var item in GetFilteredItems())
+            {
+                <div class="gallery-item @(item.IsLarge ? "gm-large" : "")" data-aos="fade-up">
+                    <div class="gi-inner">
+                        <img src="@item.ImagePath" alt="@item.Title" />
+                        <div class="gi-overlay">
+                            <span class="gi-tag tag-blue">@item.Description.Split(' ')[0]</span>
+                            <h4>@item.Title</h4>
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@code {
+    private string currentFilter = "all";
+    private List<LittleStarBlazor.Models.GalleryItem> allItems = new();
+
+    protected override void OnInitialized()
+    {
+        allItems = ContentService.GetGalleryItems();
+    }
+
+    private void SetFilter(string filter)
+    {
+        currentFilter = filter;
+    }
+
+    private IEnumerable<LittleStarBlazor.Models.GalleryItem> GetFilteredItems()
+    {
+        if (currentFilter == "all") return allItems;
+        return allItems.Where(i => i.Description.ToLower().Contains(currentFilter.ToLower()) || i.Title.ToLower().Contains(currentFilter.ToLower()));
+        // Note: In a real app, the GalleryItem model should have a Category property.
+        // For now I'm using the Title/Description to filter as a placeholder logic matching the original JS.
+    }
+}

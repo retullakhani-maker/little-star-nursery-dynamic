@@ -1,0 +1,28 @@
+@using Microsoft.AspNetCore.Components.Routing
+
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="/" class="nav__logo">
+            <img src="assets/images/logo.png" alt="Little Star Nursery Logo" class="nav__logo-img" />
+        </a>
+
+        <ul class="nav__menu" id="navMenu">
+            <li><NavLink href="/" Match="NavLinkMatch.All" class="nav__link">Home</NavLink></li>
+            <li><a href="/#about" class="nav__link">About Us</a></li>
+            <li><a href="/#programs" class="nav__link">Programs</a></li>
+            <li><NavLink href="gallery" class="nav__link">Gallery</NavLink></li>
+            <li><a href="/#branches" class="nav__link">Branches</a></li>
+            <li><a href="/#contact" class="nav__link">Contact</a></li>
+            <li>
+                <a href="tel:+919099520954" class="nav__phone">
+                    <i class="fas fa-phone-alt"></i> +91 90995 20954
+                </a>
+            </li>
+            <li><a href="/#contact" class="btn btn--primary nav__cta"><i class="fas fa-star"></i> Enroll Now</a></li>
+        </ul>
+
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>

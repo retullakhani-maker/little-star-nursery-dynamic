@@ -1,0 +1,20 @@
+@using LittleStarBlazor.Models
+
+<div class="swiper-slide">
+    <div class="testi-card @Testimonial.CardColorClass">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p class="tc-text">"@Testimonial.Quote"</p>
+        <div class="tc-author-row">
+            <div class="tc-avatar" style="background:@Testimonial.AvatarColor;">@Testimonial.Initials</div>
+            <div>
+                <strong>@Testimonial.Author</strong>
+                <span>@Testimonial.ChildName</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Testimonial Testimonial { get; set; } = new();
+}
