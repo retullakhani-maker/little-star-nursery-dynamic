@@ -98,10 +98,54 @@ namespace LittleStarBlazor.Services
         {
             return new List<BranchInfo>
             {
-                new BranchInfo { Name = "Main Branch (Hirabaugh)", Address = "12/A, શ્રીરામનગર સોસાયટી, આદર્શ સોસાયટીની બાજુમાં, હિરાબાગ સર્કલ પાસે, હિરાબાગ ટુ જનતા રોડ", Phone = "+91 81560 50010", MapLink = "#", Badge = "Main Branch", ColorClass = "bcard-1" },
-                new BranchInfo { Name = "Branch No. 2 (Nana Varachha)", Address = "110, કૃષ્ણકુંજ સોસાયટી, આશાદીપ સ્કુલ-1ની નજીક, સીમાડા નાકાની પાછળ, નાના વરાછા", Phone = "+91 95376 91700", MapLink = "#", Badge = "", ColorClass = "bcard-2" },
-                new BranchInfo { Name = "Branch No. 3 (Utran)", Address = "101, ફર્સ્ટ સ્લોર, એન્જલ સ્ક્વેર, રોયલ સ્ક્વેરની બાજુમાં, સિલ્વર મેક્ઝિમાની સામે, વી.આઈ.પી. સર્કલ પાસે, ઉત્રાણ", Phone = "+91 95867 17500", MapLink = "#", Badge = "", ColorClass = "bcard-3" },
-                new BranchInfo { Name = "Branch No. 4 (Sarthana)", Address = "1, રાધે ક્રિષ્ના સોસાયટી, સંકલ્પ રેસીડેન્સીની સામે, શ્યામધામ મંદિરની પાછળ, પરમહંસ સ્કૂલની સામે, સરથાણા જકાતનાકા આગળ", Phone = "+91 97268 33009", MapLink = "#", Badge = "", ColorClass = "bcard-4" }
+                new BranchInfo 
+                { 
+                    Name = "Main Branch (Hirabaugh)", 
+                    NameGujarati = "મેઈન બ્રાન્ચ (હિરાબાગ)",
+                    Address = "12/A, Shriramnagar Society, Near Hirabaugh Circle, Varachha Road", 
+                    AddressGujarati = "12/A, શ્રીરામનગર સોસાયટી, આદર્શ સોસાયટીની બાજુમાં, હિરાબાગ સર્કલ પાસે, હિરાબાગ ટુ જનતા રોડ", 
+                    Phone = "+91 81560 50010", 
+                    MapLink = "https://www.google.com/maps/dir//Little+Star+Nursery+School,+Varachha+Main+Road,+Ram+Nagar,+Hirabaugh,+Surat,+Gujarat/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3be04f7b05133ddb:0x34bdeacc8d2f63f0?sa=X&ved=1t:3061&ictx=111", 
+                    Badge = "Main Branch", 
+                    BadgeGujarati = "મેઈન બ્રાન્ચ",
+                    ColorClass = "bcard-1" 
+                },
+                new BranchInfo 
+                { 
+                    Name = "Branch No. 2 (Nana Varachha)", 
+                    NameGujarati = "બ્રાન્ચ નં. ૨ (નાના વરાછા)",
+                    Address = "110, Krushnakunj Society, Near Aashadeep School-1, Simada Naka", 
+                    AddressGujarati = "110, કૃષ્ણકુંજ સોસાયટી, આશાદીપ સ્કુલ-1ની નજીક, સીમાડા નાકાની પાછળ, નાના વરાછા", 
+                    Phone = "+91 95376 91700", 
+                    MapLink = "https://www.google.com/maps/dir/21.2148077,72.8633633/LITTLE+STAR+NURSERY,+14,+AKSHARDHAM+SOCIETY,+SARTHANA+JAKAT,+opp.+NAVJIVAN+HOTEL,+Surat,+Gujarat+395013/@21.2245353,72.8439586,16957m/data=!3m2!1e3!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3be045747e7f6e43:0x5a130b564a78ba40!2m2!1d72.9075099!2d21.2341987!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMxMC4wIKXMDSoASAFQAw%3D%3D", 
+                    Badge = "", 
+                    BadgeGujarati = "",
+                    ColorClass = "bcard-2" 
+                },
+                new BranchInfo 
+                { 
+                    Name = "Branch No. 3 (Utran)", 
+                    NameGujarati = "બ્રાન્ચ નં. ૩ (ઉત્રાણ)",
+                    Address = "101, First Floor, Angel Square, Near VIP Circle, Utran", 
+                    AddressGujarati = "101, ફર્સ્ટ સ્લોર, એન્જલ સ્ક્વેર, રોયલ સ્ક્વેરની બાજુમાં, સિલ્વર મેક્ઝિમાની સામે, વી.આઈ.પી. સર્કલ પાસે, ઉત્રાણ", 
+                    Phone = "+91 95867 17500", 
+                    MapLink = "https://www.google.com/maps/dir//Little+Star+Nursery+school,+FF%2F101,+Angel+Square,+opp.+SILVER+MAXIMA,+nr.+VIP+Circle,+Uttran,+Surat,+Gujarat+394105/@21.2337597,72.7817746,33912m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3be04f57fb4ed23f:0x45696c310df1e26b!2m2!1d72.8641899!2d21.2344799!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDMxMC4wIKXMDSoASAFQAw%3D%3D", 
+                    Badge = "", 
+                    BadgeGujarati = "",
+                    ColorClass = "bcard-3" 
+                },
+                new BranchInfo 
+                { 
+                    Name = "Branch No. 4 (Sarthana)", 
+                    NameGujarati = "બ્રાન્ચ નં. ૪ (સરથાણા)",
+                    Address = "1, RadheKrishna Society, Behind Shyamdham Mandir, Sarthana Jakatnaka", 
+                    AddressGujarati = "1, રાધે ક્રિષ્ના સોસાયટી, સંકલ્પ રેસીડેન્સીની સામે, શ્યામધામ મંદિરની પાછળ, પરમહંસ સ્કૂલની સામે, સરથાણા જકાતનાકા આગળ", 
+                    Phone = "+91 97268 33009", 
+                    MapLink = "https://www.google.com/maps/dir//little+star+nursery+school+akshardham/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3be045747e7f6e43:0x5a130b564a78ba40?sa=X&ved=1t:3061&ictx=111", 
+                    Badge = "", 
+                    BadgeGujarati = "",
+                    ColorClass = "bcard-4" 
+                }
             };
         }
 
@@ -109,11 +153,11 @@ namespace LittleStarBlazor.Services
         {
             return new List<GalleryItem>
             {
-                new GalleryItem { Title = "Admission 2026-27", Description = "Open for all branches", ImagePath = "assets/images/all_branches.jpg", IconClass = "fas fa-school", IsLarge = true },
-                new GalleryItem { Title = "Main Branch", Description = "Hirabaugh Road", ImagePath = "assets/images/branch_main.jpg", IconClass = "fas fa-star", IsLarge = false },
-                new GalleryItem { Title = "Nana Varachha", Description = "Branch No. 2", ImagePath = "assets/images/branch_2.jpg", IconClass = "fas fa-child", IsLarge = false },
-                new GalleryItem { Title = "Utran", Description = "Branch No. 3", ImagePath = "assets/images/branch_3.jpg", IconClass = "fas fa-baby", IsLarge = false },
-                new GalleryItem { Title = "Sarthana", Description = "Branch No. 4", ImagePath = "assets/images/branch_4.jpg", IconClass = "fas fa-university", IsLarge = false },
+                new GalleryItem { Title = "Admission 2026-27", Description = "Open for all branches", ImagePath = "assets/images/all_branches.jpeg", IconClass = "fas fa-school", IsLarge = true },
+                new GalleryItem { Title = "Main Branch", Description = "Hirabaugh Road", ImagePath = "assets/images/MainBranch.jpeg", IconClass = "fas fa-star", IsLarge = false },
+                new GalleryItem { Title = "Nana Varachha", Description = "Branch No. 2", ImagePath = "assets/images/NanaVarachha.jpeg", IconClass = "fas fa-child", IsLarge = false },
+                new GalleryItem { Title = "Utran", Description = "Branch No. 3", ImagePath = "assets/images/Utran.jpeg", IconClass = "fas fa-baby", IsLarge = false },
+                new GalleryItem { Title = "Sarthana", Description = "Branch No. 4", ImagePath = "assets/images/Sarthana.jpeg", IconClass = "fas fa-university", IsLarge = false },
                 new GalleryItem { Title = "Creative Colors", Description = "Exploring art and craft", ImagePath = "assets/images/nursery_gallery_activity.png", IconClass = "fas fa-palette", IsLarge = false },
                 new GalleryItem { Title = "Outdoor Fun", Description = "Nurturing physical growth", ImagePath = "assets/images/nursery_gallery_playground.png", IconClass = "fas fa-tree", IsLarge = false },
                 new GalleryItem { Title = "Little Star", Description = "Learning with joy", ImagePath = "assets/images/nursery_hero_vibrant.png", IconClass = "fas fa-heart", IsLarge = false }

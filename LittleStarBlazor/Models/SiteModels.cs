@@ -33,10 +33,13 @@ namespace LittleStarBlazor.Models
     public class BranchInfo
     {
         public string Name { get; set; } = string.Empty;
+        public string NameGujarati { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+        public string AddressGujarati { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public string MapLink { get; set; } = string.Empty;
         public string Badge { get; set; } = string.Empty;
+        public string BadgeGujarati { get; set; } = string.Empty;
         public string ColorClass { get; set; } = string.Empty; // e.g., bcard-1, bcard-2
     }
 }

@@ -1,5 +1,6 @@
 @page "/gallery"
 @inject LittleStarBlazor.Services.ContentService ContentService
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Gallery | Little Star Nursery – Moments & Milestones</PageTitle>
 
@@ -8,9 +9,9 @@
     <div class="hero__circle hc-1"></div>
     <div class="hero__circle hc-4"></div>
     <div class="container text-center">
-        <span class="sec-badge badge-red"><i class="fas fa-camera-retro"></i> Our Memories</span>
-        <h1 class="gallery-hero__title">Moments & <span class="sh-accent">Milestones</span> ⭐</h1>
-        <p class="gallery-hero__sub">Explore the joyful world of Little Star Nursery. Our vibrant activities, colorful festivals, and special celebrations.</p>
+        <span class="sec-badge badge-red" data-aos="fade-down"><i class="fas fa-camera-retro"></i> Our Memories</span>
+        <h1 class="gallery-hero__title" data-aos="fade-up">Moments & <span class="sh-accent">Milestones</span> ⭐</h1>
+        <p class="gallery-hero__sub" data-aos="fade-up" data-aos-delay="100">Explore the joyful world of Little Star Nursery. Our vibrant activities, colorful festivals, and special celebrations.</p>
     </div>
 </section>
 
@@ -28,11 +29,14 @@
         <div class="gallery-full-grid" id="galleryGrid">
             @foreach (var item in GetFilteredItems())
             {
-                <div class="gallery-item @(item.IsLarge ? "gm-large" : "")" data-aos="fade-up">
+                <div class="gallery-item @(item.IsLarge ? "gm-large" : "")" data-aos="fade-up" @onclick="() => OpenLightbox(item)">
                     <div class="gi-inner">
-                        <img src="@item.ImagePath" alt="@item.Title" />
+                        <img src="@item.ImagePath" alt="@item.Title" loading="lazy" />
+                        <div class="gi-view-hint">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
                         <div class="gi-overlay">
-                            <span class="gi-tag tag-blue">@item.Description.Split(' ')[0]</span>
+                            <span class="gi-tag @GetTagColor(item)">@GetTag(item)</span>
                             <h4>@item.Title</h4>
                             <p>@item.Description</p>
                         </div>
@@ -43,25 +47,91 @@
     </div>
 </section>
 
+<!-- ========== PREMIUM LIGHTBOX MODAL ========== -->
+<div class="premium-lightbox @(isLightboxActive ? "active" : "")" @onclick="CloseLightbox">
+    @if (selectedItem != null)
+    {
+        <div class="lightbox-content" @onclick:stopPropagation="true">
+            <button class="lightbox-close" @onclick="CloseLightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="lightbox-img-wrap">
+                <img src="@selectedItem.ImagePath" alt="@selectedItem.Title" class="lightbox-img" />
+            </div>
+            <div class="lightbox-info">
+                <h3>@selectedItem.Title</h3>
+                <p>@selectedItem.Description</p>
+            </div>
+        </div>
+    }
+</div>
+
 @code {
     private string currentFilter = "all";
     private List<LittleStarBlazor.Models.GalleryItem> allItems = new();
+    
+    private bool isLightboxActive = false;
+    private LittleStarBlazor.Models.GalleryItem? selectedItem;
 
     protected override void OnInitialized()
     {
         allItems = ContentService.GetGalleryItems();
     }
 
-    private void SetFilter(string filter)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Ensure AOS is refreshed when the gallery loads
+            await JSRuntime.InvokeVoidAsync("AOS.refresh");
+        }
+    }
+
+    private async Task SetFilter(string filter)
     {
         currentFilter = filter;
+        // Small delay to allow Blazor to render the filtered collection before AOS re-scans
+        await Task.Delay(50);
+        await JSRuntime.InvokeVoidAsync("AOS.refresh");
     }
 
     private IEnumerable<LittleStarBlazor.Models.GalleryItem> GetFilteredItems()
     {
         if (currentFilter == "all") return allItems;
-        return allItems.Where(i => i.Description.ToLower().Contains(currentFilter.ToLower()) || i.Title.ToLower().Contains(currentFilter.ToLower()));
-        // Note: In a real app, the GalleryItem model should have a Category property.
-        // For now I'm using the Title/Description to filter as a placeholder logic matching the original JS.
+        return allItems.Where(i => 
+            i.Description.ToLower().Contains(currentFilter.ToLower()) || 
+            i.Title.ToLower().Contains(currentFilter.ToLower()));
+    }
+
+    private string GetTag(LittleStarBlazor.Models.GalleryItem item)
+    {
+        if (item.Description.ToLower().Contains("activity")) return "Activity";
+        if (item.Description.ToLower().Contains("festival")) return "Festival";
+        if (item.Description.ToLower().Contains("function")) return "Function";
+        return "Memory";
+    }
+
+    private string GetTagColor(LittleStarBlazor.Models.GalleryItem item)
+    {
+        var tag = GetTag(item);
+        return tag switch
+        {
+            "Activity" => "tag-blue",
+            "Festival" => "tag-orange",
+            "Function" => "tag-purple",
+            _ => "tag-green"
+        };
+    }
+
+    private void OpenLightbox(LittleStarBlazor.Models.GalleryItem item)
+    {
+        selectedItem = item;
+        isLightboxActive = true;
+    }
+
+    private void CloseLightbox()
+    {
+        isLightboxActive = false;
+        // Don't null selectedItem immediately to allow fade-out animation to finish with the image visible
     }
 }
