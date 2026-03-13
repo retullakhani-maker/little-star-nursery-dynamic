@@ -98,12 +98,10 @@ namespace LittleStarBlazor.Services
         {
             return new List<BranchInfo>
             {
-                new BranchInfo { Name = "Hirabaugh", Address = "12/A, Shriramnagar Society, Near Hirabaugh Circle", Phone = "+91 90995 20954", MapLink = "#", Badge = "Main Branch", ColorClass = "bcard-1" },
-                new BranchInfo { Name = "Nana Varachha", Address = "110, Krushnakunj Society, Near Aashadeep School-1", Phone = "+91 95376 91700", MapLink = "#", Badge = "", ColorClass = "bcard-2" },
-                new BranchInfo { Name = "Sarthana", Address = "14, Akashardham Society, Sarthana Jakkatnaka", Phone = "+91 90816 60090", MapLink = "#", Badge = "", ColorClass = "bcard-3" },
-                new BranchInfo { Name = "Shyamdham Mandir", Address = "1, RadheKrishna Society, Behind Shyamdham Mandir", Phone = "+91 97268 33009", MapLink = "#", Badge = "", ColorClass = "bcard-4" },
-                new BranchInfo { Name = "Utran", Address = "101, First Floor, Angel Square, VIP Circle", Phone = "+91 95867 17500", MapLink = "#", Badge = "", ColorClass = "bcard-5" },
-                new BranchInfo { Name = "Mota Varachha", Address = "1, Bhaktinandan Society, Mota Varachha", Phone = "+91 95861 18852", MapLink = "#", Badge = "", ColorClass = "bcard-6" }
+                new BranchInfo { Name = "Main Branch (Hirabaugh)", Address = "12/A, શ્રીરામનગર સોસાયટી, આદર્શ સોસાયટીની બાજુમાં, હિરાબાગ સર્કલ પાસે, હિરાબાગ ટુ જનતા રોડ", Phone = "+91 81560 50010", MapLink = "#", Badge = "Main Branch", ColorClass = "bcard-1" },
+                new BranchInfo { Name = "Branch No. 2 (Nana Varachha)", Address = "110, કૃષ્ણકુંજ સોસાયટી, આશાદીપ સ્કુલ-1ની નજીક, સીમાડા નાકાની પાછળ, નાના વરાછા", Phone = "+91 95376 91700", MapLink = "#", Badge = "", ColorClass = "bcard-2" },
+                new BranchInfo { Name = "Branch No. 3 (Utran)", Address = "101, ફર્સ્ટ સ્લોર, એન્જલ સ્ક્વેર, રોયલ સ્ક્વેરની બાજુમાં, સિલ્વર મેક્ઝિમાની સામે, વી.આઈ.પી. સર્કલ પાસે, ઉત્રાણ", Phone = "+91 95867 17500", MapLink = "#", Badge = "", ColorClass = "bcard-3" },
+                new BranchInfo { Name = "Branch No. 4 (Sarthana)", Address = "1, રાધે ક્રિષ્ના સોસાયટી, સંકલ્પ રેસીડેન્સીની સામે, શ્યામધામ મંદિરની પાછળ, પરમહંસ સ્કૂલની સામે, સરથાણા જકાતનાકા આગળ", Phone = "+91 97268 33009", MapLink = "#", Badge = "", ColorClass = "bcard-4" }
             };
         }
 
@@ -111,14 +109,14 @@ namespace LittleStarBlazor.Services
         {
             return new List<GalleryItem>
             {
-                new GalleryItem { Title = "Creative Colors", Description = "Exploring art and craft", ImagePath = "assets/images/nursery_gallery_activity.png", IconClass = "fas fa-palette", IsLarge = true },
-                new GalleryItem { Title = "Janmashtami Fest", Description = "Divine celebrations (Video)", ImagePath = "assets/images/class-1.jpg", IconClass = "fas fa-star", IsLarge = false },
-                new GalleryItem { Title = "Annual Function", Description = "Shining on the stage", ImagePath = "assets/images/class-2.jpg", IconClass = "fas fa-graduation-cap", IsLarge = false },
-                new GalleryItem { Title = "Little Scientists", Description = "Learning through experiments", ImagePath = "assets/images/class-3.jpg", IconClass = "fas fa-lightbulb", IsLarge = false },
-                new GalleryItem { Title = "Navratri Garba", Description = "Traditional joy and dance", ImagePath = "assets/images/class-4.jpg", IconClass = "fas fa-star", IsLarge = false },
-                new GalleryItem { Title = "Outdoor Fun", Description = "Nurturing physical growth (Video)", ImagePath = "assets/images/nursery_gallery_playground.png", IconClass = "fas fa-tree", IsLarge = false },
-                new GalleryItem { Title = "Grandparents Day", Description = "Celebrating special bonds", ImagePath = "assets/images/littlestar.jpg", IconClass = "fas fa-heart", IsLarge = false },
-                new GalleryItem { Title = "Diwali Celebration", Description = "Spreading lights and love (Video)", ImagePath = "assets/images/blog-1.jpg", IconClass = "fas fa-lightbulb", IsLarge = false }
+                new GalleryItem { Title = "Admission 2026-27", Description = "Open for all branches", ImagePath = "assets/images/all_branches.jpg", IconClass = "fas fa-school", IsLarge = true },
+                new GalleryItem { Title = "Main Branch", Description = "Hirabaugh Road", ImagePath = "assets/images/branch_main.jpg", IconClass = "fas fa-star", IsLarge = false },
+                new GalleryItem { Title = "Nana Varachha", Description = "Branch No. 2", ImagePath = "assets/images/branch_2.jpg", IconClass = "fas fa-child", IsLarge = false },
+                new GalleryItem { Title = "Utran", Description = "Branch No. 3", ImagePath = "assets/images/branch_3.jpg", IconClass = "fas fa-baby", IsLarge = false },
+                new GalleryItem { Title = "Sarthana", Description = "Branch No. 4", ImagePath = "assets/images/branch_4.jpg", IconClass = "fas fa-university", IsLarge = false },
+                new GalleryItem { Title = "Creative Colors", Description = "Exploring art and craft", ImagePath = "assets/images/nursery_gallery_activity.png", IconClass = "fas fa-palette", IsLarge = false },
+                new GalleryItem { Title = "Outdoor Fun", Description = "Nurturing physical growth", ImagePath = "assets/images/nursery_gallery_playground.png", IconClass = "fas fa-tree", IsLarge = false },
+                new GalleryItem { Title = "Little Star", Description = "Learning with joy", ImagePath = "assets/images/nursery_hero_vibrant.png", IconClass = "fas fa-heart", IsLarge = false }
             };
         }
     }
