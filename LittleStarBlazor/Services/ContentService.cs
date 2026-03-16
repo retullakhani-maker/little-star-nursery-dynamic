@@ -8,16 +8,16 @@ namespace LittleStarBlazor.Services
         {
             return new List<ProgramInfo>
             {
-                new ProgramInfo
-                {
-                    Title = "Bal Vatika",
-                    Description = "A conducive environment for your child to learn, play, and grow with happy peers",
-                    ImagePath = "assets/images/class-1.jpg",
-                    AgeRange = "Under 3 Years",
-                    Duration = "2.5 Hrs/Day",
-                    ColorClass = "pink",
-                    IconClass = "fas fa-baby"
-                },
+                //new ProgramInfo
+                //{
+                //    Title = "Bal Vatika",
+                //   Description = "A conducive environment for your child to learn, play, and grow with happy peers",
+                //    ImagePath = "assets/images/class-1.jpg",
+                //    AgeRange = "Under 3 Years",
+                //    Duration = "2.5 Hrs/Day",
+                //   ColorClass = "pink",
+                //    IconClass = "fas fa-baby"
+                //},
                 new ProgramInfo
                 {
                     Title = "Nursery",
@@ -47,7 +47,17 @@ namespace LittleStarBlazor.Services
                     Duration = "4 Hrs/Day",
                     ColorClass = "green",
                     IconClass = "fas fa-star"
-                }
+                },
+                new ProgramInfo
+                {
+                    Title = "Bal Vatika",
+                    Description = "A conducive environment for your child to learn, play, and grow with happy peers",
+                    ImagePath = "assets/images/class-1.jpg",
+                    AgeRange = "Under 3 Years",
+                    Duration = "2.5 Hrs/Day",
+                    ColorClass = "pink",
+                    IconClass = "fas fa-baby"
+                },
             };
         }
 
