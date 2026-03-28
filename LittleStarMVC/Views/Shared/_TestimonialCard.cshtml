@@ -1,0 +1,16 @@
+@model LittleStarMVC.Models.Testimonial
+
+<div class="swiper-slide">
+    <div class="testi-card @Model.CardColorClass">
+        <div class="tc-stars">★★★★★</div>
+        <div class="tc-quote-icon"><i class="fas fa-quote-left"></i></div>
+        <p class="tc-text">"@Model.Quote"</p>
+        <div class="tc-author-row">
+            <div class="tc-avatar" style="background:@Model.AvatarColor;">@Model.Initials</div>
+            <div>
+                <strong>@Model.Author</strong>
+                <span>@Model.ChildName</span>
+            </div>
+        </div>
+    </div>
+</div>

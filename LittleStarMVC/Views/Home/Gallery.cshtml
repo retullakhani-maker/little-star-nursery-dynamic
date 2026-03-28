@@ -1,0 +1,317 @@
+@model List<LittleStarMVC.Models.GalleryItem>
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<!-- ========== GALLERY HERO ========== -->
+<section class="hero hero--sub" id="gallery-hero">
+    <div class="hero__circle hc-1"></div>
+    <div class="hero__circle hc-4"></div>
+    
+    <div class="container">
+        <div class="hero__content text-center" style="max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <div class="hero__badge-top">
+                <i class="fas fa-camera-retro"></i> Our Joyful Memories
+            </div>
+            <h1 class="hero__heading">
+                Moments & <span class="ht-green">Milestones</span> ⭐
+            </h1>
+            <p class="hero__sub">
+                Explore the colorful world of Little Star Nursery. A window into our vibrant celebrations, creative activities, and the everyday joy of learning.
+            </p>
+        </div>
+    </div>
+
+    <div class="hero__wave">
+        <svg viewBox="0 0 1440 110" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M0 60C240 110 480 20 720 60C960 100 1200 20 1440 60V110H0V60Z" fill="#ffffff" />
+        </svg>
+    </div>
+</section>
+
+<!-- ========== GALLERY MAIN ========== -->
+<section class="gallery-page-section section">
+    <div class="container">
+        <!-- Category Filter -->
+        <div class="gallery-filter-wrap mb-5" data-aos="fade-up" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+            <button class="gallery-filter-btn active" data-filter="all">
+                <i class="fas fa-th-large"></i> All
+            </button>
+            <button class="gallery-filter-btn" data-filter="activity">
+                <i class="fas fa-paint-brush"></i> Activities
+            </button>
+            <button class="gallery-filter-btn" data-filter="festival">
+                <i class="fas fa-om"></i> Festivals
+            </button>
+            <button class="gallery-filter-btn" data-filter="function">
+                <i class="fas fa-star"></i> Functions
+            </button>
+        </div>
+
+        <div class="gallery-full-grid" id="galleryGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;">
+            @foreach (var item in Model)
+            {
+                var tag = "Memory";
+                var tagColor = "tag-green";
+                if (item.Description.ToLower().Contains("activity")) { tag = "Activity"; tagColor = "tag-blue"; }
+                else if (item.Description.ToLower().Contains("festival")) { tag = "Festival"; tagColor = "tag-orange"; }
+                else if (item.Description.ToLower().Contains("function")) { tag = "Function"; tagColor = "tag-purple"; }
+
+                <div class="gallery-item @(item.IsLarge ? "gm-large" : "")" data-aos="fade-up" data-category="@tag.ToLower()" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                    <div class="gi-inner" style="height: 100%;">
+                        <img src="~/@item.ImagePath" alt="@item.Title" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                        <div class="gi-view-hint" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.9); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary); transition: opacity 0.3s ease; opacity: 0;">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                        <div class="gi-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 30px 20px 20px; color: white; display: flex; flex-direction: column; justify-content: flex-end; transform: translateY(10px); opacity: 0; transition: all 0.3s ease;">
+                            <span class="gi-tag @tagColor" style="align-self: flex-start; margin-bottom: 8px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">@tag</span>
+                            <h4 style="margin: 0; color: white; font-size: 1.2rem;">@item.Title</h4>
+                            <p style="font-size: 0.85rem; margin: 5px 0 0; opacity: 0.9;">@item.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- ========== JOURNEY CTA ========== -->
+<section class="journey-cta section text-center" style="background: var(--blue); color: white;">
+    <div class="container" data-aos="zoom-in">
+        <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;">Join the Happiness!</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Our gallery is a small glimpse of the joy we create every day. Want to see it in person? Schedule a tour today!
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="/contact" class="btn btn--white btn--lg"><i class="fas fa-calendar-check"></i> Schedule a Visit</a>
+            <a href="/branches" class="btn btn--outline-white btn--lg">Find Near You</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PREMIUM LIGHTBOX MODAL ========== -->
+<div class="premium-lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-img-wrap">
+            <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+        </div>
+        <div class="lightbox-info">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDesc"></p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxDesc = document.getElementById('lightboxDesc');
+        const lightboxClose = document.getElementById('lightboxClose');
+
+        // Filtering
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 50);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+                
+                setTimeout(() => AOS.refresh(), 350);
+            });
+        });
+
+        // Lightbox
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img').src;
+                const title = item.querySelector('h4').textContent;
+                const desc = item.querySelector('p').textContent;
+
+                lightboxImg.src = img;
+                lightboxTitle.textContent = title;
+                lightboxDesc.textContent = desc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeFunc = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        lightboxClose.addEventListener('click', closeFunc);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeFunc();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeFunc();
+        });
+    });
+</script>
+
+<style>
+    /* Specific styles for sub-page hero */
+    .hero--sub {
+        min-height: 60vh;
+        padding: 0px 0 60px;
+        text-align: center;
+    }
+    
+    .hero--sub .hero__badge-top {
+        margin-bottom: 24px;
+    }
+
+    .hero--sub .hero__heading {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+    }
+
+    /* Filter Buttons */
+    .gallery-filter-btn {
+        padding: 12px 24px;
+        border-radius: 50px;
+        background: white;
+        border: 2px solid #eee;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    .gallery-filter-btn:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        transform: translateY(-2px);
+    }
+
+    .gallery-filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Gallery Hover Effects */
+    .gallery-item {
+        transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .gallery-item:hover .gi-overlay {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .gallery-item:hover .gi-view-hint {
+        opacity: 1;
+    }
+
+    .gi-tag {
+        padding: 4px 10px;
+        border-radius: 6px;
+        color: white;
+    }
+    .tag-blue { background: #3b82f6; }
+    .tag-orange { background: #f97316; }
+    .tag-purple { background: #a855f7; }
+    .tag-green { background: #22c55e; }
+
+    /* Lightbox Styles */
+    .premium-lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.9);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        padding: 20px;
+    }
+
+    .premium-lightbox.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .lightbox-content {
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .premium-lightbox.active .lightbox-content {
+        transform: scale(1);
+    }
+
+    .lightbox-img-wrap {
+        width: 100%;
+        max-height: 70vh;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox-img {
+        max-width: 100%;
+        max-height: 70vh;
+        object-fit: contain;
+    }
+
+    .lightbox-info {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        z-index: 10;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+        transform: rotate(90deg);
+    }
+</style>
+}

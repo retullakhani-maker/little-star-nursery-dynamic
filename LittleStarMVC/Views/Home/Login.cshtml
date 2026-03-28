@@ -1,0 +1,44 @@
+@{
+    Layout = "_EmptyLayout";
+    ViewData["Title"] = "Login";
+}
+
+<div class="auth-page">
+    <div class="login-card" data-aos="zoom-in">
+        <div class="login-header">
+            <img src="~/assets/images/logo.png" alt="Little Star Logo" class="login-logo" />
+            <h1 class="login-title">Welcome Back!</h1>
+            <p class="login-subtitle">Please enter your details to login</p>
+        </div>
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="login-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>@ViewBag.ErrorMessage</span>
+            </div>
+        }
+
+        <form class="login-form" asp-action="Login" asp-controller="Home" method="post">
+            <div class="login-group">
+                <label class="login-label" for="username">Username</label>
+                <div class="login-input-wrap">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" class="login-input" placeholder="Enter username" required />
+                </div>
+            </div>
+
+            <div class="login-group">
+                <label class="login-label" for="password">Password</label>
+                <div class="login-input-wrap">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" class="login-input" placeholder="••••••••" required />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg w-100" style="margin-top: 12px;">
+                Login <i class="fas fa-sign-in-alt"></i>
+            </button>
+        </form>
+    </div>
+</div>

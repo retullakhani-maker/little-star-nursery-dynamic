@@ -1,0 +1,19 @@
+@model LittleStarMVC.Models.ProgramInfo
+
+<div class="prog-card" data-aos="fade-up">
+    <div class="prog-ribbon ribbon-@Model.ColorClass">@Model.AgeRange</div>
+    <div class="prog-img-wrap">
+        <img src="~/@Model.ImagePath" alt="@Model.Title" />
+        <div class="prog-img-overlay"></div>
+    </div>
+    <div class="prog-body prog-body-@Model.ColorClass">
+        <div class="prog-icon pi-@Model.ColorClass"><i class="@Model.IconClass"></i></div>
+        <h3>@Model.Title</h3>
+        <p>@Model.Description</p>
+        <div class="prog-meta">
+            <span class="pm-item"><i class="fas fa-birthday-cake"></i> @Model.AgeRange</span>
+            <span class="pm-item"><i class="fas fa-clock"></i> @Model.Duration</span>
+        </div>
+        <a href="#contact" class="prog-btn pbtn-@Model.ColorClass">Enroll Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>

@@ -1,3 +1,5 @@
 ﻿/LittleStarBlazor/bin/Debug/net9.0
 /LittleStarBlazor/obj
 /.vs
+/LittleStarMVC/bin
+/LittleStarMVC/obj

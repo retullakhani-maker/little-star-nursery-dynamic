@@ -1,0 +1,39 @@
+<header class="header" id="header">
+    <div class="top-announcement">
+        <div class="container ta-inner">
+            <span>
+                <i class="fas fa-rocket"></i> 
+                <strong>Admissions Open 2026-27!</strong> / <strong>પ્રવેશ ચાલુ છે ૨૦૨૬-૨૭!</strong>
+            </span>
+            <a href="/#contact" class="ta-cta">Enroll Now / પ્રવેશ મેળવો <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+    <nav class="nav container">
+        <a href="/" class="nav__logo">
+            <img src="~/assets/images/logo.png" alt="Little Star Nursery Logo" class="nav__logo-img" />
+        </a>
+
+        <ul class="nav__menu" id="navMenu">
+            <li><a href="/" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">Home</a></li>
+            <li><a href="/about" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">About Us</a></li>
+            <li><a href="/programs" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "Programs" ? "active" : "")">Programs</a></li>
+            <li><a href="/gallery" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "Gallery" ? "active" : "")">Gallery</a></li>
+            <li><a href="/branches" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "Branches" ? "active" : "")">Branches</a></li>
+            <li><a href="/contact" class="nav__link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")">Contact</a></li>
+            <li>
+                <a href="tel:+919099520954" class="nav__phone">
+                    <i class="fas fa-phone-alt"></i> +91 90995 20954
+                </a>
+            </li>
+            <li><a href="/#contact" class="btn btn--primary nav__cta"><i class="fas fa-star"></i> Enroll Now</a></li>
+        </ul>
+
+        <div class="navbar-right">
+            <div id="google_translate_element"></div>
+        </div>
+
+        <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>
